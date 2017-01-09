@@ -7,9 +7,13 @@ AWS anounced AWS Step Functions:https://aws.amazon.com/step-functions/details/
 
 It is basically an advanced implementation of our decider by AWS. You will describe your execution workflow visually, it will generate a "plan" and then executes Lambda functions or activities in workers accordingly. This new services will be great for CloudTranscode as it will simplify the setup greatly. It will remove the need for a Decider. We could also get rid of the InputPoller.php and initiate workflow directly from the client applications. you will be able to create fancy workflow with fallbacks, branches, parallel transcoding, etc
 
-We will work on moving to this soon. If you are interested in participating, let us know!
+## First SFN version
 
-We are also working on moving to AWS SDK 3.* instead of 2.*.
+In the `SFN-migration` branch you will find the new version of CT which uses SFN. 
+
+Please take a look at the README and send me your input: https://github.com/sportarchive/CloudTranscode/tree/SFN-migration
+
+We will test this branch for a while before making it `master`.
 
 # What is Cloud Transcode ?
 Cloud Transcode (CT) is your own distributed transcoding stack. With it you can transcode media files in a distributed way, at scale.
