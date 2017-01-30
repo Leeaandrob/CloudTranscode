@@ -9,6 +9,11 @@ Here is the Docker image of this new SFN version: https://hub.docker.com/r/sport
 You need to create your workflow in SFN. Start one or many of the activities ValidateAsset or TranscodeAsset and they will listen for processing incoming jobs. Start job by calling SFN direct from AWS SDK, API or Console by strating a new execution and providing a JSON input.
 
 There are example of input in the `input_samples` folder in the same branch. 
+There are two changes in the input format:
+   
+   - No more `workflow` section
+   - `output` is now an array of `output` objects allowing one worker to process all outputs one after another
+
 
 #### First SFN version
 
