@@ -1,19 +1,28 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/sportarchive/CloudTranscode?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge) 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/sportarchive/CloudTranscode/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/sportarchive/CloudTranscode/?branch=master) 
 
-# Updates
+### Updates 
 
-AWS anounced AWS Step Functions:https://aws.amazon.com/step-functions/details/
+##### SFN docker version [2017/01/30]
+
+Here is the Docker image of this new SFN version: https://hub.docker.com/r/sportarc/cloudtranscode/
+You need to create your workflow in SFN. Start one or many of the activities ValidateAsset or TranscodeAsset and they will listen for processing incoming jobs. Start job by calling SFN direct from AWS SDK, API or Console by strating a new execution and providing a JSON input.
+
+There are example of input in the `input_samples` folder in the same branch. 
+
+#### First SFN version
+
+In the `SFN-migration` branch you will find the new CT version which uses AWS SFN: https://aws.amazon.com/step-functions/details/
+
+Please take a look at the README and send me your input: https://github.com/sportarchive/CloudTranscode/tree/SFN-migration
+We will test this branch for a while before making it `master`.
+
+#### SFN acouncement
+
+AWS anounced AWS Step Functions: https://aws.amazon.com/step-functions/details/
 
 It is basically an advanced implementation of our decider by AWS. You will describe your execution workflow visually, it will generate a "plan" and then executes Lambda functions or activities in workers accordingly. This new services will be great for CloudTranscode as it will simplify the setup greatly. It will remove the need for a Decider. We could also get rid of the InputPoller.php and initiate workflow directly from the client applications. you will be able to create fancy workflow with fallbacks, branches, parallel transcoding, etc
 
-## First SFN version
-
-In the `SFN-migration` branch you will find the new version of CT which uses SFN. 
-
-Please take a look at the README and send me your input: https://github.com/sportarchive/CloudTranscode/tree/SFN-migration
-
-We will test this branch for a while before making it `master`.
 
 # What is Cloud Transcode ?
 Cloud Transcode (CT) is your own distributed transcoding stack. With it you can transcode media files in a distributed way, at scale.
