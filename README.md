@@ -3,7 +3,7 @@
 
 ### Updates 
 
-##### SFN docker version [2017/01/30]
+##### Docker image available! [2017/01/30]
 
 Here is the Docker image of this new SFN version: https://hub.docker.com/r/sportarc/cloudtranscode/
 You need to create your workflow in SFN. Start one or many of the activities ValidateAsset or TranscodeAsset and they will listen for processing incoming jobs. Start job by calling SFN direct from AWS SDK, API or Console by strating a new execution and providing a JSON input.
